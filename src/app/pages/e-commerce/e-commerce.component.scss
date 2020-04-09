@@ -4,9 +4,8 @@ ngx-charts-pie-chart,
 {
   display: block;
   width: 100%;
-  height: nb-theme(card-height-medium);
-
-  ::ng-deep {
+  height: nb-theme(card-height-tiny);
+/*  ::ng-deep {
     .pie-label {
       fill: nb-theme(text-basic-color);
     }
@@ -33,11 +32,14 @@ ngx-charts-pie-chart,
       line-height: 1.25;
     }
 
-    .legend-items {
-      overflow-y: hidden;
-    }
-  }
+  }*/
 }
-.bifurcationBarChart nb-card-body{
-  padding: 1rem;
+
+.chartRow nb-card-body{
+  padding: 1rem 0rem;
+}
+
+ng2-smart-table{
+  display: block;
+  width: 100%;
 }

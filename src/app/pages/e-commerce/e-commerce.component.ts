@@ -27,24 +27,32 @@ export class ECommerceComponent implements OnInit  {
     columns: {
       no: {
         title: 'no',
+        width: '5%'
       },
       date: {
         title: 'date',
+        width: '10%'
       },
       company: {
         title: 'company',
+        width: '10%'
       },
       cmp: {
         title: 'cmp',
+        width: '10%'
       },
       gain_percent: {
-        title: 'Gain %'
+        title: 'Gain %',
+        width: '10%',
+        type: 'custom'
       },
       rec_price: {
-        title: 'Rec price'
+        title: 'Rec price',
+        width: '10%'
       },
       sector: {
-        title: 'Sector'
+        title: 'Sector',
+        width: '10%'
       }
     },
     actions: {
