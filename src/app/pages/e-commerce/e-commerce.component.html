@@ -5,7 +5,12 @@
         Sector
       </nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="results" [legend]="showLegend" [labels]="showLabels">
+        <ngx-charts-pie-chart [scheme]="colorScheme"
+                              [results]="sectorInfoResults"
+                              [legend]="showLegend"
+                              [labels]="showLabels"
+                              [trimLabels]=false
+        >
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
@@ -14,8 +19,37 @@
     <nb-card>
       <nb-card-header>Pie</nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="results" [legend]="showLegend" [labels]="showLabels">
+        <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="bifurcationPieResults"
+          [legend]="showLegend"
+          [labels]="showLabels"
+          [trimLabels]=false
+        >
         </ngx-charts-pie-chart>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row bifurcationBarChart">
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header>
+        Bifurcation
+      </nb-card-header>
+      <nb-card-body>
+        <ngx-charts-bar-vertical
+          [scheme]="colorScheme"
+          [results]="bifurcationResults"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showBifurcationLegend"
+          [xAxisLabel]=""
+          [yAxisLabel]=""
+          [trimXAxisTicks]=false
+        >
+        </ngx-charts-bar-vertical>
       </nb-card-body>
     </nb-card>
   </div>
@@ -29,10 +63,10 @@
       </nb-card-header>
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Gain Records">
-          <ng2-smart-table [settings]="settings" [source]="gainOverallRecords"></ng2-smart-table>
+          <ng2-smart-table [settings]="gainLossTableSettings" [source]="gainOverallRecords"></ng2-smart-table>
         </nb-tab>
         <nb-tab tabTitle="Loss Records">
-          <ng2-smart-table [settings]="settings" [source]="lossOverallRecords"></ng2-smart-table>
+          <ng2-smart-table [settings]="gainLossTableSettings" [source]="lossOverallRecords"></ng2-smart-table>
         </nb-tab>
       </nb-tabset>
     </nb-card>
@@ -47,12 +81,25 @@
       </nb-card-header>
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Gain Records">
-          <ng2-smart-table [settings]="settings" [source]="gainDailyRecords"></ng2-smart-table>
+          <ng2-smart-table [settings]="gainLossTableSettings" [source]="gainDailyRecords"></ng2-smart-table>
         </nb-tab>
         <nb-tab tabTitle="Loss Records">
-          <ng2-smart-table [settings]="settings" [source]="lossDailyRecords"></ng2-smart-table>
+          <ng2-smart-table [settings]="gainLossTableSettings" [source]="lossDailyRecords"></ng2-smart-table>
         </nb-tab>
       </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header>
+        All Share Values
+      </nb-card-header>
+      <nb-card-body>
+        <ng2-smart-table [settings]="allShareTableSettings" [source]="allShareValuesRecords"></ng2-smart-table>
+      </nb-card-body>
     </nb-card>
   </div>
 </div>
