@@ -25,34 +25,39 @@ export class ECommerceComponent implements OnInit  {
   lossDailyRecords: LocalDataSource = new LocalDataSource();
   gainLossTableSettings = {
     columns: {
-      no: {
-        title: 'no',
-        width: '5%'
-      },
+      // no: {
+      //   title: 'N',
+      //   width: '5%'
+      // },
       date: {
-        title: 'date',
-        width: '10%'
+        title: 'Date',
+        width: '10%',
+        filter: false,
       },
       company: {
-        title: 'company',
-        width: '10%'
+        title: 'Company',
+        width: '10%',
+        filter: false,
       },
       cmp: {
-        title: 'cmp',
-        width: '10%'
+        title: 'Cmp',
+        width: '10%',
+        filter: false,
       },
       gain_percent: {
         title: 'Gain %',
         width: '10%',
-        type: 'custom'
+        type: 'custom',
+        filter: false,
       },
-      rec_price: {
+     /* rec_price: {
         title: 'Rec price',
         width: '10%'
       },
-      sector: {
+     */ sector: {
         title: 'Sector',
-        width: '10%'
+        width: '10%',
+        filter: false,
       }
     },
     actions: {
@@ -66,23 +71,28 @@ export class ECommerceComponent implements OnInit  {
   allShareValuesRecords: LocalDataSource = new LocalDataSource();
   allShareTableSettings = {
     columns: {
-      date: {
-        title: 'date',
+      date: {width: '10px',
+        title: 'Date',
+        filter: false,
       },
-      company: {
-        title: 'company',
+      company: {width: '10px',
+        title: 'Company',
+        filter: false,
       },
-      cmp: {
-        title: 'cmp',
+      cmp: {width: '10px',
+        title: 'Cmp',
+        filter: false,
       },
-      gain_percent: {
-        title: 'Gain %'
+      gain_percent: {width: '10px',
+        title: 'Gain %',
+        filter: false,
       },
-      rec_price: {
+      /*rec_price: {
         title: 'Rec price'
-      },
-      sector: {
-        title: 'Sector'
+      },*/
+      sector: {width: '15px',
+        title: 'Sector',
+        filter: false,
       }
     },
     actions: {

@@ -5,6 +5,13 @@ ngx-charts-pie-chart,
   display: block;
   width: 100%;
   height: nb-theme(card-height-tiny);
+  ::ng-deep {
+    .total-value,
+    .item-value,
+    .item-percent {
+      line-height: 1.25;
+    }
+  }
 /*  ::ng-deep {
     .pie-label {
       fill: nb-theme(text-basic-color);
@@ -43,3 +50,13 @@ ng2-smart-table{
   display: block;
   width: 100%;
 }
+::ng-deep .nb-theme-default ng2-smart-table table tr th,::ng-deep .nb-theme-default ng2-smart-table table tr th a  {
+  font-weight: bold !important;
+}
+::ng-deep .nb-theme-default ng2-smart-table tbody tr:nth-child(2n),::ng-deep .nb-theme-default ng2-smart-table tbody tr:nth-child(2n):hover {
+  background-color: #1995AD !important;
+}
+::ng-deep .nb-theme-default ng2-smart-table tbody tr{
+  background-color: #F1F1F2;
+}
+

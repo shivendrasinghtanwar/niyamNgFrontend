@@ -3,6 +3,7 @@
 // @nebular out of the box themes
 @import '~@nebular/theme/styles/themes';
 
+
 $nb-themes: nb-register-theme((
   layout-padding-top: 2.25rem,
 
@@ -18,6 +19,7 @@ $nb-themes: nb-register-theme((
   card-header-with-select-padding-bottom: 0.5rem,
 
   select-min-width: 6rem,
+
 
   slide-out-background: #f7f9fc,
   slide-out-shadow-color: 0 4px 14px 0 #8f9bb3,
