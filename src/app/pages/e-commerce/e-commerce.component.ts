@@ -129,6 +129,7 @@ export class ECommerceComponent implements OnInit  {
   showLegend = true;
   showLabels = true;
   colorScheme: any;
+  legendPosition = 'right';
   constructor(
     private gainBifurcationService: GainBifurcationService,
     private allShareValuesService: AllShareValuesService,
