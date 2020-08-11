@@ -49,6 +49,10 @@
       @include nb-rtl(border-right, 1px solid nb-theme(divider-color));
       white-space: nowrap;
       text-decoration: none;
+      background-size: contain;
+      height: 30px;
+      width: 100%;
+      background-repeat: no-repeat;
     }
   }
 

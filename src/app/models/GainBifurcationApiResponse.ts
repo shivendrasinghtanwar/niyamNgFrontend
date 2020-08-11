@@ -1,6 +1,6 @@
 export class GainBifurcationApiResponse {
   res: {
-    pie1: {},
-    pie2: {}
+    gainBifercationpieOne: Object,
+    gainBifercationpieTwo: Object
   };
 }

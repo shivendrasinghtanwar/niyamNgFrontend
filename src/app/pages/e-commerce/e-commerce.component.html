@@ -1,106 +1,83 @@
 <div class="row chartRow">
-  <div class="col-md-12">
+  <div class="col-12">
     <nb-card>
       <nb-card-header>
         Bifurcation
       </nb-card-header>
       <nb-card-body>
-        <ngx-charts-bar-vertical
-          [scheme]="colorScheme"
-          [results]="bifurcationResults"
-          [xAxis]="showXAxis"
-          [yAxis]="showYAxis"
-          [legend]="showBifurcationLegend"
-          [xAxisLabel]=""
-          [yAxisLabel]=""
-          [trimXAxisTicks]=true
-          [trimYAxisTicks]=true
-          [rotateXAxisTicks]=false
-          [showYAxisLabel]=false
-          [legendPosition]="legendPosition"
-        >
+        <ngx-charts-bar-vertical (window:resize)="onResize($event)" [scheme]="colorScheme" [results]="bifurcationResults" [xAxis]="showXAxis"
+          [yAxis]="showYAxis" [legend]="showBifurcationLegend" [xAxisLabel]="" [yAxisLabel]="" [trimXAxisTicks]=true
+          [trimYAxisTicks]=true [rotateXAxisTicks]=false [showYAxisLabel]=false [legendPosition]="legendPosition" [view]="view">
         </ngx-charts-bar-vertical>
       </nb-card-body>
     </nb-card>
   </div>
-
 </div>
+
 <div class="row chartRow">
-  <div class="col-md-6">
+  <div class="col-12">
     <nb-card>
       <nb-card-header>Over All Performance</nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart
-          [scheme]="colorScheme"
-          [results]="bifurcationPieResults"
-          [legend]=true
-          [labels]="showLabels"
-          [trimLabels]=false
-        >
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="bifurcationPieResults" [legend]=true
+          [labels]="showLabels" [trimLabels]=false>
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-md-6">
+</div>
+
+<div class="row chartRow">
+  <div class="col-12">
     <nb-card>
       <nb-card-header>
         Companies From Each Sector
       </nb-card-header>
       <nb-card-body style="overflow: visible">
-        <ngx-charts-pie-chart [scheme]="colorScheme"
-                              [results]="sectorInfoResults"
-                              [legend]=false
-                              [labels]="showLabels"
-                              [trimLabels]=false
-        >
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="sectorInfoResults" [legend]=false [labels]="showLabels"
+          [trimLabels]=false>
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-6">
+<div class="row gain-loss-records" >
+  <div class="col-md-6 col-xs-12 col-sm-12 gain-loss-records-container">
     <nb-card>
       <nb-card-header>
         Overall Performance
       </nb-card-header>
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Gain Records">
-          <ng2-smart-table class="gainRecords"
-            [settings]="gainLossTableSettings"
-            [source]="gainOverallRecords
+          <ng2-smart-table class="gainRecords" [settings]="gainLossTableSettings" [source]="gainOverallRecords
           "></ng2-smart-table>
         </nb-tab>
         <nb-tab tabTitle="Loss Records">
-          <ng2-smart-table class="lossRecords"
-            [settings]="gainLossTableSettings"
-            [source]="lossOverallRecords"></ng2-smart-table>
+          <ng2-smart-table class="lossRecords" [settings]="gainLossTableSettings" [source]="lossOverallRecords">
+          </ng2-smart-table>
         </nb-tab>
       </nb-tabset>
     </nb-card>
   </div>
-  <div class="col-6">
+  <div class="col-md-6 col-xs-12 col-sm-12 gain-loss-records-container">
     <nb-card>
       <nb-card-header>
         Daily Records
       </nb-card-header>
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Gain Records">
-          <ng2-smart-table class="gainRecords" [settings]="gainLossTableSettings" [source]="gainDailyRecords"></ng2-smart-table>
+          <ng2-smart-table class="gainRecords" [settings]="gainLossTableSettings" [source]="gainDailyRecords">
+          </ng2-smart-table>
         </nb-tab>
         <nb-tab tabTitle="Loss Records">
-          <ng2-smart-table class="lossRecords" [settings]="gainLossTableSettings" [source]="lossDailyRecords"></ng2-smart-table>
+          <ng2-smart-table class="lossRecords" [settings]="gainLossTableSettings" [source]="lossDailyRecords">
+          </ng2-smart-table>
         </nb-tab>
       </nb-tabset>
     </nb-card>
   </div>
 </div>
-
-<!--<div class="row">
-
-</div>-->
-
 <div class="row">
   <div class="col-12">
     <nb-card>

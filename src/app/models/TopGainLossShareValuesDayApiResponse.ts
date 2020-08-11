@@ -2,8 +2,8 @@ export class TopGainLossShareValuesDayApiResponse {
   res: TopGainLossShareValuesDayApiResponseData;
 }
 export class TopGainLossShareValuesDayApiResponseData {
-  gain: TopGainLossShareValuesDayApiResponseDataRecord[];
-  loss: TopGainLossShareValuesDayApiResponseDataRecord[];
+  topGainLossShareValuesDayGain: TopGainLossShareValuesDayApiResponseDataRecord[];
+  topGainLossShareValuesDayLoss: TopGainLossShareValuesDayApiResponseDataRecord[];
 }
 export class TopGainLossShareValuesDayApiResponseDataRecord {
   no: Number;

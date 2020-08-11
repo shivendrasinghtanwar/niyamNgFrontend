@@ -1,12 +1,18 @@
 @import './src/app/@theme/styles/themes';
 @include nb-install-component() {
 
-  ngx-charts-pie-chart,
-  ngx-charts-bar-vertical
-  {
+  ngx-charts-pie-chart{
     display: block;
     width: 100%;
     height: nb-theme(card-height-medium);
+    max-height: 500px;
+  }
+  ngx-charts-bar-vertical{
+    display: block;
+    width: 100%;
+    height: nb-theme(card-height-short);
+    max-height: 500px;
+
 
     /*  ::ng-deep {
         .pie-label {
@@ -53,6 +59,46 @@ ng2-smart-table{
 /*::ng-deep .nb-theme-default ng2-smart-table tbody tr:nth-child(2n),::ng-deep .nb-theme-default ng2-smart-table tbody tr:nth-child(2n):hover {
   background-color: #1995AD !important;
 }*/
+
+::ng-deep .nb-theme-default ng2-smart-table table {
+  tr.ng2-smart-titles, tr.ng2-smart-row, tr.ng-star-inserted{
+    th{
+      font-weight: bold
+      a{
+      font-weight: bold
+    }
+    .ng2-smart-title{
+      white-space: nowrap;
+    }
+  }
+  th, td{
+    padding: 0.5rem 1rem;
+  }
+  td, th{
+    font-size: 0.700rem;
+    .ng2-smart-sort-link {
+      font-size: 0.700rem;
+    }
+  }}
+}
+
+::ng-deep .nb-theme-default nb-tabset .tab-link{
+  font-size: 0.675rem;
+}
+
+.gain-loss-records{
+  .gain-loss-records-container{
+  nb-card{
+    height: 100%;
+    margin: 0;
+    nb-tab{
+      padding: 1rem;
+    }
+  }
+
+  margin-bottom: 1.875rem;
+}
+}
 .gainRecords ::ng-deep tbody tr,
 .gainRecords ::ng-deep  tbody tr:hover,
 .gainRecords ::ng-deep  tbody tr.selected{
@@ -64,7 +110,7 @@ ng2-smart-table{
 .gainRecords ::ng-deep  tbody tr.selected:nth-child(2n),
 .lossRecords ::ng-deep tbody tr:nth-child(2n),
 .lossRecords ::ng-deep  tbody tr:nth-child(2n):hover,
-.lossRecords ::ng-deep  tbody tr.selected:nth-child(2n),
+.lossRecords ::ng-deep  tbody tr.selected:nth-child(2n)
 {
   background: rgba(241, 241, 242, 0.4) !important;
 }

@@ -36,6 +36,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
+  siteLogo = 'assets/images/darkhorsestocks_logo.png';
+
   currentTheme = 'default';
 
   userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
@@ -50,7 +52,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
-
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => this.user = users.nick);
