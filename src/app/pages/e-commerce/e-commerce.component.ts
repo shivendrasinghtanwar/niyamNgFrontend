@@ -45,7 +45,7 @@ export class ECommerceComponent implements OnInit {
       // },
       date: {
         title: 'Date',
-        width: '30%',
+        width: '20%',
         filter: false,
         sortDirection: 'asc',
         compareFunction: this.sortDate,

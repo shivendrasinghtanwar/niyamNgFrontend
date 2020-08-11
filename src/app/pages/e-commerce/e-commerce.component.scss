@@ -4,7 +4,7 @@
   ngx-charts-pie-chart{
     display: block;
     width: 100%;
-    height: nb-theme(card-height-medium);
+    height: nb-theme(card-height-short);
     max-height: 500px;
   }
   ngx-charts-bar-vertical{
@@ -45,8 +45,18 @@
   }
 }
 
-.chartRow nb-card-body{
-  padding: 1rem 0;
+.chartRow {
+  .chart-row-column{
+  nb-card{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    nb-card-body{
+      padding: 1rem 0;
+    }
+  }
+  margin-bottom: 1.875rem;
+}
 }
 
 ng2-smart-table{

@@ -1,48 +1,43 @@
 <div class="row chartRow">
-  <div class="col-12">
+  <div class="col-md-4 col-xs-12 col-sm-12 chart-row-column">
     <nb-card>
       <nb-card-header>
         Bifurcation
       </nb-card-header>
       <nb-card-body>
-        <ngx-charts-bar-vertical (window:resize)="onResize($event)" [scheme]="colorScheme" [results]="bifurcationResults" [xAxis]="showXAxis"
-          [yAxis]="showYAxis" [legend]="showBifurcationLegend" [xAxisLabel]="" [yAxisLabel]="" [trimXAxisTicks]=true
-          [trimYAxisTicks]=true [rotateXAxisTicks]=false [showYAxisLabel]=false [legendPosition]="legendPosition" [view]="view">
+        <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="bifurcationResults" [yAxis]=true [xAxisLabel]=false
+          [yAxisLabel]=false [trimXAxisTicks]=true [trimYAxisTicks]=true [rotateXAxisTicks]=false noBarWhenZero=false
+          [showYAxisLabel]=false>
         </ngx-charts-bar-vertical>
       </nb-card-body>
     </nb-card>
   </div>
-</div>
 
-<div class="row chartRow">
-  <div class="col-12">
+  <div class="col-md-4 col-xs-12 col-sm-12 chart-row-column">
     <nb-card>
       <nb-card-header>Over All Performance</nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="bifurcationPieResults" [legend]=true
-          [labels]="showLabels" [trimLabels]=false>
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="bifurcationPieResults" [labels]=false [legend]=false [trimLabels]=false>
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
   </div>
-</div>
 
-<div class="row chartRow">
-  <div class="col-12">
+  <div class="col-md-4 col-xs-12 col-sm-12 chart-row-column">
     <nb-card>
       <nb-card-header>
         Companies From Each Sector
       </nb-card-header>
-      <nb-card-body style="overflow: visible">
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="sectorInfoResults" [legend]=false [labels]="showLabels"
-          [trimLabels]=false>
+      <nb-card-body>
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="sectorInfoResults" [labels]=false [trimLabels]=false>
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
   </div>
+
 </div>
 
-<div class="row gain-loss-records" >
+<div class="row gain-loss-records">
   <div class="col-md-6 col-xs-12 col-sm-12 gain-loss-records-container">
     <nb-card>
       <nb-card-header>
