@@ -294,7 +294,7 @@ export class ECommerceComponent implements OnInit {
   }
 
   onResize(event) {
-    this.view = [event.target.innerWidth / 1.35, 400];
+    this.view = [event.target.innerWidth/3.33, 300];
   }
 
   mapSectorInfo(response) {

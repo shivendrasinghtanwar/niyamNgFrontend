@@ -1,13 +1,10 @@
 {
-  "name": "ngx-admin",
-  "version": "5.0.0",
+  "name": "darkhorsestocks-dashboard",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akveo/ngx-admin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/akveo/ngx-admin/issues"
   },
   "scripts": {
     "ng": "ng",

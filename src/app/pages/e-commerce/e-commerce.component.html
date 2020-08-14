@@ -7,7 +7,7 @@
       <nb-card-body>
         <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="bifurcationResults" [yAxis]=true [xAxisLabel]=false
           [yAxisLabel]=false [trimXAxisTicks]=true [trimYAxisTicks]=true [rotateXAxisTicks]=false noBarWhenZero=false
-          [showYAxisLabel]=false>
+          [showYAxisLabel]=false (window:resize)="onResize($event)" [view]="view">
         </ngx-charts-bar-vertical>
       </nb-card-body>
     </nb-card>
@@ -17,7 +17,8 @@
     <nb-card>
       <nb-card-header>Over All Performance</nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="bifurcationPieResults" [labels]=false [legend]=false [trimLabels]=false>
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="bifurcationPieResults" [labels]=false [legend]=false
+          (window:resize)="onResize($event)" [view]="view" [trimLabels]=false>
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
@@ -29,7 +30,7 @@
         Companies From Each Sector
       </nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="sectorInfoResults" [labels]=false [trimLabels]=false>
+        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="sectorInfoResults" [labels]=false [trimLabels]=false (window:resize)="onResize($event)" [view]="view">
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>

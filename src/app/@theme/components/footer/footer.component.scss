@@ -6,25 +6,96 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background-color: #333C44;
   align-items: center;
 
-  .socials {
-    font-size: 2rem;
 
-    a {
-      padding: 0.4rem;
-      color: nb-theme(text-hint-color);
-      transition: color ease-out 0.1s;
+  .footer {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 36pt 0; }
 
-      &:hover {
-        color: nb-theme(text-basic-color);
-      }
+    .copyright-text{
+      color: #fff;
+      text-align: center;
+    }
+  .footer__inner {
+    -js-display: flex;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; }
+    @media (min-width: 600px) {
+      .footer__inner {
+        flex-direction: row; } }
+
+  .footer__textLogo {
+    flex-shrink: 0;
+    padding-right: 16pt;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: #6C63FF;
+    font-size: 1.225rem;
+    min-width: 33%;
+    margin-bottom: 1.5rem; }
+    @media (min-width: 600px) {
+      .footer__textLogo {
+        margin-bottom: 0; } }
+    @media (min-width: 992px) {
+      .footer__textLogo {
+        min-width: 25%;
+        font-size: 1.325rem; } }
+
+  .footer__data {
+    -js-display: flex;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-top: 0.25rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 0.9rem; }
+    @media (min-width: 992px) {
+      .footer__data {
+        flex-wrap: nowrap;
+        flex-direction: row; } }
+
+  .footer__data__item {
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    margin-bottom: 8pt;
+    p,a{
+      color: #fff;
+      text-decoration: none;
     }
   }
 
-  @include media-breakpoint-down(is) {
-    .socials {
-      font-size: 1.5rem;
-    }
-  }
+  .footer__link {
+    color: #6C63FF;
+    border-bottom: 1px dotted #6C63FF;
+    padding-bottom: 1pt;
+    transition: 0.7s; }
+    @media (min-width: 992px) {
+      .footer__link:hover {
+        color: #fafafa;
+        border-color: #fafafa; } }
+
+  .footer__row {
+    margin-bottom: 8pt; }
+
+  /*--- Modifiers---*/
+  .footer--dark {
+    background-color: #333C44; }
+    .footer--dark .footer__textLogo {
+      color: #fff; }
+    .footer--dark .footer__inner {
+      color: #d9d9d9; }
+    .footer--dark .footer__link {
+      color: #d9d9d9;
+      border-color: #d9d9d9; }
+      @media (min-width: 992px) {
+        .footer--dark .footer__link:hover {
+          color: #fff;
+          border-color: #fff; } }
+
 }

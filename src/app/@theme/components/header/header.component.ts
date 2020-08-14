@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
   ];
 
-  siteLogo = 'assets/images/darkhorsestocks_logo.png';
+  siteLogo = 'assets/images/DS_LOGO.jpg';
 
   currentTheme = 'default';
 
