@@ -1,10 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
+import { ProfileData } from '../../../dataServices/ProfileData.service';
+import {ProfileDataResponse} from '../../../models/ProfileDataResponse'
+
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
   selector: 'ngx-header',
@@ -16,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
+  profileData: Object = null;
 
   themes = [
     {
@@ -40,12 +45,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = [ ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private userService: UserData,
+              private profileService: ProfileData,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
   }
@@ -70,6 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
+      this.getAllProfileData();
   }
 
   ngOnDestroy() {
@@ -86,6 +93,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.layoutService.changeLayoutSize();
 
     return false;
+  }
+
+  getAllProfileData() {
+    this.profileService.getAll().subscribe(
+      (response: ProfileDataResponse) => {
+        console.log(response);
+        this.profileData = response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   navigateHome() {
