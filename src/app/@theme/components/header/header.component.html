@@ -3,7 +3,12 @@
     <!-- <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a> -->
-    <a class="logo" href="#" (click)="navigateHome()" style.background-image="url('{{siteLogo}}')"></a>
+    <a
+      class="logo"
+      href="#"
+      (click)="navigateHome()"
+      style.background-image="url('{{ siteLogo }}')"
+    ></a>
   </div>
   <!-- <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
     <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
@@ -11,6 +16,9 @@
 </div>
 
 <div class="header-container">
+  <div id="googleBtn" *ngIf="!user.userId" (click)="authenticate()">
+    Sign In
+  </div>
   <nb-actions size="small">
     <!-- <nb-action class="control-item">
       <nb-search type="rotate-layout"></nb-search>
@@ -18,7 +26,13 @@
     <!-- <nb-action class="control-item" icon="email-outline"></nb-action> -->
     <!-- <nb-action class="control-item" icon="bell-outline"></nb-action> -->
     <nb-action class="user-action" *nbIsGranted="['view', 'user']">
-      <nb-user [onlyPicture]="userPictureOnly" [name]="user?.name" [picture]="user?.picture">
+      <nb-user
+        [nbContextMenu]="userMenu"
+        [onlyPicture]="userPictureOnly"
+        [name]="user?.name"
+        [picture]="user?.picture"
+        *ngIf="user.userId"
+      >
       </nb-user>
     </nb-action>
   </nb-actions>

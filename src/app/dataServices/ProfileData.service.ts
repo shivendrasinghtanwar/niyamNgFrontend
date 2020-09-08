@@ -13,12 +13,12 @@ export class ProfileData {
   env = environment;
 
   constructor(private _http: HttpClient) { }
-  getAll() {
+  getAll(id_token) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       }),
     };
-    return this._http.get('https://darkhorsestocks.in/api.php', httpOptions);
+    return this._http.get(`https://darkhorsestocks.in/api.php?id_token=${id_token}`,httpOptions);
   }
 }
