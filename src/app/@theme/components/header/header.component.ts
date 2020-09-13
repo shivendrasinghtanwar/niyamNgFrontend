@@ -119,6 +119,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe(
         (isLessThanXl: boolean) => (this.userPictureOnly = isLessThanXl)
       )
+    this.user = {}
     if (await this.checkIfUserAuthenticated()) {
       const profile = this.authInstance.currentUser.get().getBasicProfile()
       this.user.name = profile.getName()
@@ -238,7 +239,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getAllProfileData(id_token) {
-    console.log(id_token)
     this.profileService.getAll(id_token).subscribe(
       (response: any) => {
         this.profileData = JSON.parse(response || {})

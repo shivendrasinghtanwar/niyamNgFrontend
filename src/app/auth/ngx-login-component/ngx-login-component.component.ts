@@ -86,7 +86,6 @@ export class NgxLoginComponentComponent implements OnInit, OnDestroy {
   }
 
   getAllProfileData(id_token) {
-    console.log(id_token)
     this.profileService.getAll(id_token).subscribe(
       (response: any) => {
         this.profileData = JSON.parse(response || {})
@@ -106,7 +105,6 @@ export class NgxLoginComponentComponent implements OnInit, OnDestroy {
       (response: any) => {
         this.profileData = JSON.parse(response || {})
         const { status = '0' } = this.profileData
-        debugger
         if (status === '1') {
           this.routerService.navigate(['/pages/dashboard'])
         }
@@ -139,6 +137,7 @@ export class NgxLoginComponentComponent implements OnInit, OnDestroy {
     this.registerForm = this.formBuilder.group({
       code: ['', Validators.required],
     })
+    this.user = {}
     if (await this.checkIfUserAuthenticated()) {
       const profile = this.authInstance.currentUser.get().getBasicProfile()
       this.user.name = profile.getName()

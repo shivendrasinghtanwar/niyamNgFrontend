@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { GainBifurcationService } from '../../dataServices/Gain-Bifurcation.Service';
-import { TopGainLossShareValuesOverallService } from '../../dataServices/topGainLossShareValuesOverall.service';
-import { TopGainLossShareValuesOverallApiResponse } from '../../models/TopGainLossShareValuesOverallApiResponse';
-import { TopGainLossShareValuesDayService } from '../../dataServices/topGainLossShareValuesDay.service';
-import { NbThemeService } from '@nebular/theme';
-import { AllShareValuesService } from '../../dataServices/AllShareValues.service';
-import { SectorInfoService } from '../../dataServices/SectorInfo.service';
-import { AllShareValuesApiResponse } from '../../models/AllShareValuesApiResponse';
-import { GainBifurcationApiResponse } from '../../models/GainBifurcationApiResponse';
-import { SectorInfoApiResponse, SectorInfoApiResponseRecord } from '../../models/SectorInfoApiResponse';
-import { DatePipe } from '@angular/common';
-import { TopGainLossShareValuesDayApiResponse } from '../../models/TopGainLossShareValuesDayApiResponse';
+import { Component, OnInit } from '@angular/core'
+import { LocalDataSource } from 'ng2-smart-table'
+import { GainBifurcationService } from '../../dataServices/Gain-Bifurcation.Service'
+import { TopGainLossShareValuesOverallService } from '../../dataServices/topGainLossShareValuesOverall.service'
+import { TopGainLossShareValuesOverallApiResponse } from '../../models/TopGainLossShareValuesOverallApiResponse'
+import { TopGainLossShareValuesDayService } from '../../dataServices/topGainLossShareValuesDay.service'
+import { NbThemeService } from '@nebular/theme'
+import { AllShareValuesService } from '../../dataServices/AllShareValues.service'
+import { SectorInfoService } from '../../dataServices/SectorInfo.service'
+import { AllShareValuesApiResponse } from '../../models/AllShareValuesApiResponse'
+import { GainBifurcationApiResponse } from '../../models/GainBifurcationApiResponse'
+import {
+  SectorInfoApiResponse,
+  SectorInfoApiResponseRecord,
+} from '../../models/SectorInfoApiResponse'
+import { DatePipe } from '@angular/common'
+import { TopGainLossShareValuesDayApiResponse } from '../../models/TopGainLossShareValuesDayApiResponse'
 
 @Component({
   selector: 'ngx-ecommerce',
@@ -19,24 +22,29 @@ import { TopGainLossShareValuesDayApiResponse } from '../../models/TopGainLossSh
   templateUrl: './e-commerce.component.html',
 })
 export class ECommerceComponent implements OnInit {
-
   sortDate = (direction: any, a: string, b: string): number => {
-    let first = a === 'Invalid Date' ? a : Number(new DatePipe('en-US').transform(a, 'yyyyMMdd'));
-    let second = b === 'Invalid Date' ? b : Number(new DatePipe('en-US').transform(b, 'yyyyMMdd'));
+    let first =
+      a === 'Invalid Date'
+        ? a
+        : Number(new DatePipe('en-US').transform(a, 'yyyyMMdd'))
+    let second =
+      b === 'Invalid Date'
+        ? b
+        : Number(new DatePipe('en-US').transform(b, 'yyyyMMdd'))
 
     if (first < second) {
-      return -1 * direction;
+      return -1 * direction
     }
     if (first > second) {
-      return direction;
+      return direction
     }
-    return 0;
+    return 0
   }
   // Gain - Loss
-  gainOverallRecords: LocalDataSource = new LocalDataSource();
-  lossOverallRecords: LocalDataSource = new LocalDataSource();
-  gainDailyRecords: LocalDataSource = new LocalDataSource();
-  lossDailyRecords: LocalDataSource = new LocalDataSource();
+  gainOverallRecords: LocalDataSource = new LocalDataSource()
+  lossOverallRecords: LocalDataSource = new LocalDataSource()
+  gainDailyRecords: LocalDataSource = new LocalDataSource()
+  lossDailyRecords: LocalDataSource = new LocalDataSource()
   gainLossTableSettings = {
     columns: {
       // no: {
@@ -50,13 +58,11 @@ export class ECommerceComponent implements OnInit {
         sortDirection: 'asc',
         compareFunction: this.sortDate,
         valuePrepareFunction: (date) => {
-          console.log(date)
-
           if (date === 'Invalid Date') {
             return date
           }
           return new DatePipe('en-US').transform(date)
-        }
+        },
       },
       company: {
         title: 'Company',
@@ -69,27 +75,27 @@ export class ECommerceComponent implements OnInit {
       gain_percent: {
         title: 'Gain %',
         width: '10%',
-        valuePrepareFunction: (value) => value ? value.toFixed(2) : value,
+        valuePrepareFunction: (value) => (value ? value.toFixed(2) : value),
         filter: false,
       },
-     /* rec_price: {
+      /* rec_price: {
         title: 'Rec price',
         width: '10%'
       },
      */ sector: {
         title: 'Sector',
         filter: false,
-      }
+      },
     },
     actions: {
       add: false,
       delete: false,
-      edit: false
-    }
-  };
+      edit: false,
+    },
+  }
 
   // All Share
-  allShareValuesRecords: LocalDataSource = new LocalDataSource();
+  allShareValuesRecords: LocalDataSource = new LocalDataSource()
   allShareTableSettings = {
     columns: {
       date: {
@@ -103,7 +109,7 @@ export class ECommerceComponent implements OnInit {
             return date
           }
           return new DatePipe('en-US').transform(date)
-        }
+        },
       },
       company: {
         title: 'Company',
@@ -118,7 +124,7 @@ export class ECommerceComponent implements OnInit {
         title: 'Gain %',
         width: '10%',
         filter: false,
-        valuePrepareFunction: (value) => value.toFixed(2)
+        valuePrepareFunction: (value) => value.toFixed(2),
       },
       rec_price: {
         title: 'Rec price',
@@ -128,44 +134,38 @@ export class ECommerceComponent implements OnInit {
       sector: {
         title: 'Sector',
         filter: false,
-      }
+      },
     },
     actions: {
       add: false,
       delete: false,
-      edit: false
-    }
-  };
+      edit: false,
+    },
+  }
 
   //Bifurcation
-  bifurcationResults = [
-    { name: '', value: 0 }
-  ];
-  showBifurcationLegend = true;
-  showXAxis = true;
-  showYAxis = true;
+  bifurcationResults = [{ name: '', value: 0 }]
+  showBifurcationLegend = true
+  showXAxis = true
+  showYAxis = true
 
-  bifurcationPieResults = [
-    { name: '', value: 0 }
-  ];
+  bifurcationPieResults = [{ name: '', value: 0 }]
 
   //Sector info
-  sectorInfoResults = [
-    { name: '', value: 0 }
-  ];
+  sectorInfoResults = [{ name: '', value: 0 }]
 
-  themeSubscription: any;
+  themeSubscription: any
 
   results = [
     { name: 'Germany', value: 8940 },
     { name: 'USA', value: 5000 },
     { name: 'France', value: 7200 },
-  ];
-  showLegend = true;
-  showLabels = true;
-  colorScheme: any;
-  legendPosition = 'right';
-  view: number[];
+  ]
+  showLegend = true
+  showLabels = true
+  colorScheme: any
+  legendPosition = 'right'
+  view: number[]
   constructor(
     private gainBifurcationService: GainBifurcationService,
     private allShareValuesService: AllShareValuesService,
@@ -174,56 +174,67 @@ export class ECommerceComponent implements OnInit {
     private topGainLossShareValuesDayService: TopGainLossShareValuesDayService,
     private theme: NbThemeService
   ) {
-
-    this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
-      const colors: any = config.variables;
+    this.themeSubscription = this.theme.getJsTheme().subscribe((config) => {
+      const colors: any = config.variables
       this.colorScheme = {
-        domain: [colors.primaryLight, colors.infoLight, colors.successLight, colors.warningLight, colors.dangerLight],
-      };
-    });
+        domain: [
+          colors.primaryLight,
+          colors.infoLight,
+          colors.successLight,
+          colors.warningLight,
+          colors.dangerLight,
+        ],
+      }
+    })
   }
   ngOnInit() {
-
-    this.getAllTopGainLossShareValuesOverall();
-    this.getAllTopGainLossShareValuesDaily();
-    this.getAllShareValues();
-    this.getBifurcationData();
-    this.getSectorInfo();
+    this.getAllTopGainLossShareValuesOverall()
+    this.getAllTopGainLossShareValuesDaily()
+    this.getAllShareValues()
+    this.getBifurcationData()
+    this.getSectorInfo()
   }
-
-
 
   /**
    * Top Gain Loss Share Values Overall
    */
   getAllTopGainLossShareValuesOverall() {
-    this.topGainLossShareValuesOverallService.getTopGainLossShareValuesOverall().subscribe(
-      (response: TopGainLossShareValuesOverallApiResponse) => {
-        console.log(response);
-        console.log(response.res.topGainLossShareValuesOverallGain);
-        this.gainOverallRecords = new LocalDataSource(response.res.topGainLossShareValuesOverallGain);
-        this.lossOverallRecords = new LocalDataSource(response.res.topGainLossShareValuesOverallLoss);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.topGainLossShareValuesOverallService
+      .getTopGainLossShareValuesOverall()
+      .subscribe(
+        (response: TopGainLossShareValuesOverallApiResponse) => {
+          this.gainOverallRecords = new LocalDataSource(
+            response.res.topGainLossShareValuesOverallGain
+          )
+          this.lossOverallRecords = new LocalDataSource(
+            response.res.topGainLossShareValuesOverallLoss
+          )
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
   }
 
   /**
    * Top Gain Loss Share Values Daily
    */
   getAllTopGainLossShareValuesDaily() {
-    this.topGainLossShareValuesDayService.getTopGainLossShareValuesDay().subscribe(
-      (response: TopGainLossShareValuesDayApiResponse) => {
-        console.log(response);
-        this.gainDailyRecords = new LocalDataSource(response.res.topGainLossShareValuesDayGain);
-        this.lossDailyRecords = new LocalDataSource(response.res.topGainLossShareValuesDayLoss);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    this.topGainLossShareValuesDayService
+      .getTopGainLossShareValuesDay()
+      .subscribe(
+        (response: TopGainLossShareValuesDayApiResponse) => {
+          this.gainDailyRecords = new LocalDataSource(
+            response.res.topGainLossShareValuesDayGain
+          )
+          this.lossDailyRecords = new LocalDataSource(
+            response.res.topGainLossShareValuesDayLoss
+          )
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
   }
 
   /**
@@ -232,13 +243,12 @@ export class ECommerceComponent implements OnInit {
   getAllShareValues() {
     this.allShareValuesService.getAll().subscribe(
       (response: AllShareValuesApiResponse) => {
-        console.log(response);
-        this.allShareValuesRecords = new LocalDataSource(response.res);
+        this.allShareValuesRecords = new LocalDataSource(response.res)
       },
-      error => {
-        console.log(error);
+      (error) => {
+        console.log(error)
       }
-    );
+    )
   }
 
   /**
@@ -247,35 +257,33 @@ export class ECommerceComponent implements OnInit {
   getBifurcationData() {
     this.gainBifurcationService.getGainBifurcation().subscribe(
       (response: GainBifurcationApiResponse) => {
-        this.mapBifurcationData(response.res);
+        this.mapBifurcationData(response.res)
       },
-      error => {
-        console.log(error);
+      (error) => {
+        console.log(error)
       }
-    );
+    )
   }
 
   mapBifurcationData(response) {
-    this.bifurcationResults = [];
+    this.bifurcationResults = []
     Object.entries(response.gainBifercationpieOne || {}).forEach(
       ([key, value]) => {
         this.bifurcationResults.push({
           name: key,
-          value: <number><any>value.toString()
-        });
+          value: <number>(<any>value.toString()),
+        })
       }
-    );
-    console.log('Data to map', response.gainBifercationpieTwo);
-    this.bifurcationPieResults = [];
+    )
+    this.bifurcationPieResults = []
     Object.entries(response.gainBifercationpieTwo || {}).forEach(
       ([key, value]) => {
         this.bifurcationPieResults.push({
           name: key,
-          value: <number><any>value.toString()
-        });
+          value: <number>(<any>value.toString()),
+        })
       }
-    );
-    console.log('bifurcationPieResults', this.bifurcationPieResults);
+    )
   }
 
   /**
@@ -284,26 +292,25 @@ export class ECommerceComponent implements OnInit {
   getSectorInfo() {
     this.sectorInfoService.getAll().subscribe(
       (response: SectorInfoApiResponse) => {
-        console.log(response);
-        this.mapSectorInfo(response.res);
+        this.mapSectorInfo(response.res)
       },
-      error => {
-        console.log(error);
+      (error) => {
+        console.log(error)
       }
-    );
+    )
   }
 
   onResize(event) {
-    this.view = [event.target.innerWidth/3.33, 300];
+    this.view = [event.target.innerWidth / 3.33, 300]
   }
 
   mapSectorInfo(response) {
-    this.sectorInfoResults = [];
+    this.sectorInfoResults = []
     response.forEach((value: SectorInfoApiResponseRecord) => {
       this.sectorInfoResults.push({
         name: value.sector.toString(),
-        value: <number><any>value.numberOfCompany.toString()
-      });
-    });
+        value: <number>(<any>value.numberOfCompany.toString()),
+      })
+    })
   }
 }
