@@ -12,7 +12,7 @@
     align-items: center;
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
   }
-  #googleBtn{
+  #googleBtn {
     cursor: pointer;
   }
 
@@ -27,7 +27,7 @@
   }
 
   ::ng-deep nb-search button {
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   .header-container {
@@ -53,7 +53,7 @@
       white-space: nowrap;
       text-decoration: none;
       background-size: contain;
-      height: 30px;
+      height: 40px;
       width: 100%;
       background-repeat: no-repeat;
     }

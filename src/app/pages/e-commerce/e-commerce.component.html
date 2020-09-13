@@ -2,12 +2,23 @@
   <div class="col-md-4 col-xs-12 col-sm-12 chart-row-column">
     <nb-card class="shadow">
       <nb-card-header>
-        Bifurcation
+        Bifurcation <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon>
       </nb-card-header>
       <nb-card-body>
-        <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="bifurcationResults" [yAxis]=true [xAxisLabel]=false
-          [yAxisLabel]=false [trimXAxisTicks]=true [trimYAxisTicks]=true [rotateXAxisTicks]=false noBarWhenZero=false
-          [showYAxisLabel]=false (window:resize)="onResize($event)" [view]="view">
+        <ngx-charts-bar-vertical
+          [scheme]="colorScheme"
+          [results]="bifurcationResults"
+          [yAxis]="true"
+          [xAxisLabel]="false"
+          [yAxisLabel]="false"
+          [trimXAxisTicks]="true"
+          [trimYAxisTicks]="true"
+          [rotateXAxisTicks]="false"
+          noBarWhenZero="false"
+          [showYAxisLabel]="false"
+          (window:resize)="onResize($event)"
+          [view]="view"
+        >
         </ngx-charts-bar-vertical>
       </nb-card-body>
     </nb-card>
@@ -15,10 +26,20 @@
 
   <div class="col-md-4 col-xs-12 col-sm-12 chart-row-column">
     <nb-card class="shadow">
-      <nb-card-header>Over All Performance</nb-card-header>
+      <nb-card-header
+        >Over All Performance
+        <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon
+      ></nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="bifurcationPieResults" [labels]=false [legend]=false
-          (window:resize)="onResize($event)" [view]="view" [trimLabels]=false>
+        <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="bifurcationPieResults"
+          [labels]="false"
+          [legend]="false"
+          (window:resize)="onResize($event)"
+          [view]="view"
+          [trimLabels]="false"
+        >
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
@@ -28,14 +49,21 @@
     <nb-card class="shadow">
       <nb-card-header>
         Companies From Each Sector
+        <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon>
       </nb-card-header>
       <nb-card-body>
-        <ngx-charts-pie-chart [scheme]="colorScheme" [results]="sectorInfoResults" [labels]=false [trimLabels]=false (window:resize)="onResize($event)" [view]="view">
+        <ngx-charts-pie-chart
+          [scheme]="colorScheme"
+          [results]="sectorInfoResults"
+          [labels]="false"
+          [trimLabels]="false"
+          (window:resize)="onResize($event)"
+          [view]="view"
+        >
         </ngx-charts-pie-chart>
       </nb-card-body>
     </nb-card>
   </div>
-
 </div>
 
 <div class="row gain-loss-records">
@@ -43,14 +71,22 @@
     <nb-card class="shadow">
       <nb-card-header>
         Overall Performance
-      </nb-card-header>
+        <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon
+      ></nb-card-header>
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Gain Records">
-          <ng2-smart-table class="gainRecords" [settings]="gainLossTableSettings" [source]="gainOverallRecords
-          "></ng2-smart-table>
+          <ng2-smart-table
+            class="gainRecords"
+            [settings]="gainLossTableSettings"
+            [source]="gainOverallRecords"
+          ></ng2-smart-table>
         </nb-tab>
         <nb-tab tabTitle="Loss Records">
-          <ng2-smart-table class="lossRecords" [settings]="gainLossTableSettings" [source]="lossOverallRecords">
+          <ng2-smart-table
+            class="lossRecords"
+            [settings]="gainLossTableSettings"
+            [source]="lossOverallRecords"
+          >
           </ng2-smart-table>
         </nb-tab>
       </nb-tabset>
@@ -59,15 +95,23 @@
   <div class="col-md-6 col-xs-12 col-sm-12 gain-loss-records-container">
     <nb-card class="shadow">
       <nb-card-header>
-        Daily Records
-      </nb-card-header>
+        Daily Records <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon
+      ></nb-card-header>
       <nb-tabset fullWidth>
         <nb-tab tabTitle="Gain Records">
-          <ng2-smart-table class="gainRecords" [settings]="gainLossTableSettings" [source]="gainDailyRecords">
+          <ng2-smart-table
+            class="gainRecords"
+            [settings]="gainLossTableSettings"
+            [source]="gainDailyRecords"
+          >
           </ng2-smart-table>
         </nb-tab>
         <nb-tab tabTitle="Loss Records">
-          <ng2-smart-table class="lossRecords" [settings]="gainLossTableSettings" [source]="lossDailyRecords">
+          <ng2-smart-table
+            class="lossRecords"
+            [settings]="gainLossTableSettings"
+            [source]="lossDailyRecords"
+          >
           </ng2-smart-table>
         </nb-tab>
       </nb-tabset>
@@ -78,10 +122,13 @@
   <div class="col-12">
     <nb-card class="shadow">
       <nb-card-header>
-        All Share Values
-      </nb-card-header>
+        All Share Values <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon
+      ></nb-card-header>
       <nb-card-body>
-        <ng2-smart-table [settings]="allShareTableSettings" [source]="allShareValuesRecords"></ng2-smart-table>
+        <ng2-smart-table
+          [settings]="allShareTableSettings"
+          [source]="allShareValuesRecords"
+        ></ng2-smart-table>
       </nb-card-body>
     </nb-card>
   </div>

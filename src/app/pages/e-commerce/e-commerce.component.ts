@@ -55,7 +55,7 @@ export class ECommerceComponent implements OnInit {
         title: 'Date',
         width: '20%',
         filter: false,
-        sortDirection: 'asc',
+        sortDirection: 'desc',
         compareFunction: this.sortDate,
         valuePrepareFunction: (date) => {
           if (date === 'Invalid Date') {
@@ -102,7 +102,7 @@ export class ECommerceComponent implements OnInit {
         title: 'Date',
         width: '15%',
         filter: false,
-        sortDirection: 'asc',
+        sortDirection: 'desc',
         compareFunction: this.sortDate,
         valuePrepareFunction: (date) => {
           if (date === 'Invalid Date') {
@@ -187,6 +187,8 @@ export class ECommerceComponent implements OnInit {
       }
     })
   }
+  commonTooltipData =
+    'Some of the stocks may have been fallen only after achieving the desired target price or giving 35% returns. Therefore please check the date of the ideas suggested and High made subsequent to the suggestion.'
   ngOnInit() {
     this.getAllTopGainLossShareValuesOverall()
     this.getAllTopGainLossShareValuesDaily()
