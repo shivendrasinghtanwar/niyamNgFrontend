@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit, NgZone } from '@angular/core'
 import {
   NbMediaBreakpointsService,
   NbMenuService,
@@ -13,6 +13,7 @@ import { UserData } from '../../../@core/data/users'
 import { LayoutService } from '../../../@core/utils'
 import { map, takeUntil, filter } from 'rxjs/operators'
 import { Subject } from 'rxjs'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'ngx-header',
@@ -93,7 +94,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private userService: UserData,
     private profileService: ProfileData,
     private layoutService: LayoutService,
-    private breakpointService: NbMediaBreakpointsService
+    private breakpointService: NbMediaBreakpointsService,
+    private routerService: Router,
+    private ngZone: NgZone
   ) {}
 
   // ngAfterViewInit(){
@@ -126,6 +129,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         .get()
         .getAuthResponse().id_token
       await this.getAllProfileData(this.user.access_token)
+    } else {
+      this.routerService.navigate(['/auth'])
     }
 
     this.menuService.onItemClick().subscribe((event) => {
@@ -223,18 +228,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   signOut() {
     const auth2 = this.authInstance
-    auth2.signOut().then(function () {
+
+    auth2.signOut().then(() => {
       console.log('User signed out.')
+      this.user = {}
+      this.profileData = {}
+      this.ngZone.run(() => this.routerService.navigate(['/auth']))
     })
-    this.user = {}
-    this.profileData = {}
   }
 
   getAllProfileData(id_token) {
     console.log(id_token)
     this.profileService.getAll(id_token).subscribe(
-      (response: ProfileDataResponse) => {
-        this.profileData = response
+      (response: any) => {
+        this.profileData = JSON.parse(response || {})
+        const { status = '0' } = this.profileData
+        if (status !== '1') {
+          this.routerService.navigate(['/auth'])
+        }
       },
       (error) => {
         console.log(error)

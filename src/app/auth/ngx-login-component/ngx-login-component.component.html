@@ -1,0 +1,40 @@
+<div class="google-sign-in" *ngIf="!user.userId">
+  <span class="sign-in-text">Please login with your google account.</span>
+  <button id="googleBtn" (click)="authenticate()" nbButton status="primary">
+    Sign In
+  </button>
+</div>
+
+<div
+  *ngIf="user.userId && profileData && profileData.status !== '1'"
+  class="payment-data"
+>
+  Hi {{ user.name }},
+  <p>
+    Sorry but this dashboard feature for now is available exclusively to all
+    darkhorsestocks members who have participated in payments last year.
+  </p>
+  <p>Please wait till November to participate in darkhorsestocks payments.</p>
+  <p>
+    Although other advisories charge 30-35,000 for half the services we provide
+    , we do not charge anything for services. However we accept payments in the
+    form of donations once a year which we use to overcome our high operating
+    expenses incurred to keep darkhorsestocks up and running as well as
+    providing better research services.
+  </p>
+  <p>
+    Meanwhile Join us on WhatsApp to receive one new fundamentally strong idea
+    with detailed research report every week including all future updates for
+    completely free.
+  </p>
+  <p>In case you have code to access dashboard feature.</p>
+  <p>Please enter:</p>
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onVerifySubmit()"
+    class="register-form"
+  >
+    <input nbInput type="text" formControlName="code" />
+    <button nbButton status="primary" type="submit">Verify</button>
+  </form>
+</div>
