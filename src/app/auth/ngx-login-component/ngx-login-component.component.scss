@@ -17,7 +17,14 @@
     width: 100%;
   }
 }
+.payment-data {
+  p {
+    text-align: justify;
+  }
+}
 .register-form {
+  margin: 1rem;
+  margin-left: 0;
   button {
     margin-left: 1rem;
   }
