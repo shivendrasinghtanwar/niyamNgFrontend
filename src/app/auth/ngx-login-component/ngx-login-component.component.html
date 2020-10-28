@@ -5,36 +5,24 @@
   </button>
 </div>
 
-<div
-  *ngIf="user.userId && profileData && profileData.status !== '1'"
-  class="payment-data"
->
+<div *ngIf="user.userId && profileData && profileData.status !== '1'" class="payment-data">
   Hi {{ user.name }},
   <p>
-    Sorry but this dashboard feature for now is available exclusively to all
-    darkhorsestocks members who have participated in payments last year.
+    All our services including Dashboard are completely free. However a small contribution would help us add many more
+    exciting features as our current operating costs are very high.
   </p>
-  <p>Please wait till November to participate in darkhorsestocks payments.</p>
+  <p>We would request you to contribute whatever you can from your end because contributing even a small sum
+    of 7,500-10000 Rs would be equivalent to giving just 150-200 Rs per stock or per week which you easily tend to spend
+    on useless things. However We leave it upto you to contribute whatever you think is the appropriate value for
+    darkhorsestocks services.</p>
   <p>
-    Although other advisories charge 30-35,000 for half the services we provide
-    , we do not charge anything for services. However we accept payments in the
-    form of donations once a year which we use to overcome our high operating
-    expenses incurred to keep darkhorsestocks up and running as well as
-    providing better research services.
+    Payments are collected only once a year in the month of the November.
   </p>
   <p>
-    Meanwhile Join us on WhatsApp to receive one new fundamentally strong idea
-    with detailed research report every week including all future updates for
-    completely free.
+    Don't worry you can still access to all darkhorsestock ideas even if you don’t participate in payments. We still
+    wish to continue giving you access to all our ideas for a considerable future.
   </p>
-  <p><b>In case you have code to access dashboard feature.</b></p>
-  <p>Please enter:</p>
-  <form
-    [formGroup]="registerForm"
-    (ngSubmit)="onVerifySubmit()"
-    class="register-form"
-  >
-    <input nbInput type="text" formControlName="code" />
-    <button nbButton status="primary" type="submit">Verify</button>
-  </form>
+  <p>Looking forward to your participation. And yes don’t forget to spread the word with your friends and family.</p>
+  <p>Regards,</p>
+  <p><a href="https://www.darkhorsestocks.in">www.darkhorsestocks.in</a></p>
 </div>
