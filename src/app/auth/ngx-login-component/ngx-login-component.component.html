@@ -25,4 +25,12 @@
   <p>Looking forward to your participation. And yes don’t forget to spread the word with your friends and family.</p>
   <p>Regards,</p>
   <p><a href="https://www.darkhorsestocks.in">www.darkhorsestocks.in</a></p>
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onVerifySubmit()"
+    class="register-form"
+  >
+    <input nbInput type="text" formControlName="code" value="dark123" hidden/>
+    <button nbButton status="primary" type="submit">Next</button>
+  </form>
 </div>
