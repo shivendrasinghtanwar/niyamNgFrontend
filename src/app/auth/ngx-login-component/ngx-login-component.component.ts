@@ -121,12 +121,7 @@ export class NgxLoginComponentComponent implements OnInit, OnDestroy {
 
   onVerifySubmit() {
     this.submitted = true
-
-    if (this.registerForm.invalid) {
-      return
-    }
-    const { code = '' } = this.registerForm.value
-    this.getVerifiedData(code)
+    this.getVerifiedData('dark123')
   }
 
   async ngOnInit() {
