@@ -1,3 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="shadow">
+      <nb-card-header>
+        Multiple x-axis <nb-icon [nbTooltip]='commonTooltipData' icon="info-outline" status="danger"></nb-icon>
+      </nb-card-header>
+      <nb-card-body>
+        <div echarts [options]="historicValuesChartOptions" class="echart"></div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
 <div class="row chartRow">
   <div class="col-md-4 col-xs-12 col-sm-12 chart-row-column">
     <nb-card class="shadow">
@@ -65,7 +77,6 @@
     </nb-card>
   </div>
 </div>
-
 <div class="row gain-loss-records">
   <div class="col-md-6 col-xs-12 col-sm-12 gain-loss-records-container">
     <nb-card class="shadow">

@@ -43,7 +43,7 @@ const components = [
   EchartsLineComponent,
   EchartsPieComponent,
   EchartsBarComponent,
-  EchartsMultipleXaxisComponent,
+  // EchartsMultipleXaxisComponent,
   EchartsAreaStackComponent,
   EchartsBarAnimationComponent,
   EchartsRadarComponent,

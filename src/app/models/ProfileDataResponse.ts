@@ -1,3 +1,3 @@
 export class ProfileDataResponse {
-  status: String
+  status: String;
 }
