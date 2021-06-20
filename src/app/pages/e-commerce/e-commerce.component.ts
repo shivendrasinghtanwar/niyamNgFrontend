@@ -101,7 +101,7 @@ export class ECommerceComponent implements OnInit {
       date: {
         title: 'Date',
         width: '15%',
-        filter: false,
+        filter: true,
         sortDirection: 'desc',
         compareFunction: this.sortDate,
         valuePrepareFunction: (date) => {
@@ -113,27 +113,27 @@ export class ECommerceComponent implements OnInit {
       },
       company: {
         title: 'Company',
-        filter: false,
+        filter: true,
       },
       cmp: {
         title: 'CMP',
         valuePrepareFunction: (value) => value.toFixed(2),
-        filter: false,
+        filter: true,
       },
       gain_percent: {
         title: 'Gain %',
         width: '10%',
-        filter: false,
+        filter: true,
         valuePrepareFunction: (value) => value.toFixed(2),
       },
       rec_price: {
         title: 'Rec price',
         width: '15%',
-        filter: false,
+        filter: true,
       },
       sector: {
         title: 'Sector',
-        filter: false,
+        filter: true,
       },
     },
     actions: {
